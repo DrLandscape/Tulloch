@@ -1,0 +1,58 @@
+'1969-08-31': 
+  - name: "Born in PA"
+    desc: "A hot day in CEntral Pennsylvania."
+    category: "self"
+
+'1969-10-29':
+  - name: "Tonya is born"
+    category: "family"
+    tags: ['Towson']
+
+'1973-04-21':
+  - name: "Tanya is born"
+    category: "family"
+    tags: ['Lexington']
+
+
+'1986-05-10':
+  - name: "Junior Prom"
+    category: "event"
+    tags: ['Lexington']
+
+'1987-06-01':
+  - name: "High School Graduation"
+    category: "event"
+    tags: ['Lexington']
+
+'1992-05-09':
+  - name: "UK Graduation"
+    category: "event"
+    tags: ['Lexington']
+
+'1992-08-01':
+  - name: "Got Married"
+    category: "event"
+    tags: ['Lexington']
+
+'1992-08-15':
+  - name: "Arrive in Baton Rouge"
+    category: "Home"
+    tags: ['Louisiana']
+
+'1994-06-01':
+  - name: "Arrive in Madison"
+    category: "Home"
+    tags: ['Wisconsin']
+
+'2001-08-05':
+  - name: "Dylan is born"
+    category: "Family"
+    tags: ['Princeton']
+
+'2003-11-27':
+  - name: "Ian is born"
+    category: "Family"
+    tags: ['Princeton']
+
+
+
