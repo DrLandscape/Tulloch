@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="lifeInWeeks">
+  <head>
+    <meta charset="utf-8" />
+    <title>My life in weeks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.angularjs.org/1.4.8/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl as ctrl" ng-cloak>
+    <div class="container">
+      <h1>{{ctrl.title}}</h1>
+      <table>
+        <tr>
+          <th></th>
+          <th class="top" ng-repeat="week in ctrl.weekNumbers track by $index">
+            <div>{{week}}</div>
+          </th>
+          </tr>
+        <tr ng-repeat="year in ctrl.years">
+          <th class="left"><div>{{year.number}}</div></th>
+          <td ng-repeat="week in year.weeks" title="{{week.date | date : 'dd.MM.yyyy'}}">
+            <div ng-attr-style="{{week.style}}"></div>
+          </td>
+        </tr>
+      </table>
+      <div class="legend col-md-6 col-md-offset-3" ng-show="ctrl.showLegend">
+        <div ng-repeat="span in ctrl.legend">
+          <div class="legend-box" ng-attr-style="{{span.style}}"></div>
+          {{span.description}}
+        </div>
+      </div>
+      <div class="buttons hidden-print col-md-6 col-md-offset-3">
+        <button type="button" class="btn btn-primary" ng-click="ctrl.print()">
+          Print
+        </button>
+      </div>
+      <div class="hidden-print col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">Input</div>
+          <div class="panel-body">
+            <div>
+              <label>Title</label>
+              <input type="text" class="form-control" ng-model="ctrl.title">
+            </div>
+            <div>
+              <label>Birth date</label>
+              <input
+                  type="date"
+                  class="form-control"
+                  ng-model="ctrl.birthDate"
+                  ng-model-options="{ debounce: 1000 }">
+            </div>
+            <div>
+              <label>Years to show</label>
+              <input
+                  type="number"
+                  class="form-control"
+                  ng-model="ctrl.totalYears"
+                  ng-model-options="{ debounce: 1000 }">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-model="ctrl.showLegend">
+                Show legend
+              </label>
+            </div>
+            <div ng-class="{'has-error': ctrl.jsonError}">
+              <label class="control-label">Data in JSON format</label>
+              <textarea
+                  class="form-control"
+                  rows="15"
+                  ng-model="ctrl.dataInput"
+                  ng-model-options="{ debounce: 1000 }"></textarea>
+              <div class="text-danger" ng-show="ctrl.jsonError">Parse error: {{ctrl.jsonError}}</div>
+            </div>
+            <button class="btn btn-warning" ng-click="ctrl.clearData()">Clear</button>
+            <div>
+              <label>Example data</label>
+              <pre>{{ctrl.exampleData}}</pre>
+              <button class="btn btn-default" ng-click="ctrl.useExample()">
+                Use example
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons hidden-print col-md-6 col-md-offset-3">
+        <a href="https://github.com/PeWu/life-in-weeks">Page source on GitHub</a>
+      </div>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJYGHJ25VW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-PJYGHJ25VW');
+    </script>
+  </body>
+</html>
